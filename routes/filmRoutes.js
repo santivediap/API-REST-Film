@@ -1,11 +1,12 @@
-const express = require('express');
-const filmRouter = express.Router();
+const express = require('express')
+const filmsRouter = express.Router()
 const checkApiKey = require('../middlewares/auth_api_key')
-const filmController = require("../controllers/filmController");
+const filmsController = require("../controllers/filmController")
 
 // http://localhost:3000/api/film/:title
-filmRouter.get('/:title?', checkApiKey,  filmController.getFilm);
-filmRouter.post('/', checkApiKey, filmController.createFilm);
-filmRouter.put('/', filmController.editFilm)
+filmsRouter.get('/:title?', filmsController.getFilm)
+filmsRouter.post('/', checkApiKey, filmsController.createFilm)
+filmsRouter.put('/', checkApiKey, filmsController.editFilm)
+filmsRouter.delete('/:title?', checkApiKey, filmsController.deleteFilm)
 
-module.exports = filmRouter;
+module.exports = filmsRouter;

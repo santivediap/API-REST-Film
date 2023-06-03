@@ -1,4 +1,4 @@
-const filmsAPI = require("../utils/filmsAPI")
+const filmsAPI = require("../utils/filmsApiRequest");
 
 const getFilm = async (req, res) => {
     if (req.params.id) {
@@ -68,8 +68,17 @@ const editFilm = async (req, res) => {
   res.status(200).json({id, message: `Se ha actualizado: ${putFilm.titulo}` });
 }
 
+const deleteFilm = async (req, res) => {
+  const film = await filmsAPI.fetchFilm(req.params.title)
+
+      let titulo = film.Title;
+      let id = Math.floor(Math.random() * (10000 - 1) + 1);
+      res.status(200).json({id, "message": `Se ha borrado ${titulo}`});
+} 
+
 module.exports = {
   getFilm,
   createFilm,
   editFilm,
+  deleteFilm
 };

@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = import('node-fetch');
 
 
 const fetchFilm = async (title) => {
@@ -8,43 +8,43 @@ const fetchFilm = async (title) => {
 }
 
 const fetchFilms = async (word) => {
-  let films = await fetch(`https://www.omdbapi.com/?s=${word}&apikey=${process.env.SAVE_API_KEY}`);
-  const filmData = films.json();
-  return filmData;
+    let films = await fetch(`https://www.omdbapi.com/?s=${word}&apikey=${process.env.SAVE_API_KEY}`);
+    const filmData = films.json();
+    return filmData;
 }
-
 
 const fetchPostFilm = async (newProduct) => {
 
-  let postFilm = await fetch(`https://www.omdbapi.com/?&apikey=${process.env.SAVE_API_KEY}`,  {
-      method: "POST",
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newProduct)
-  });
-  const filmData = postFilm.json();
-  return newProduct;
-};
+    let postFilm = await fetch(`https://www.omdbapi.com/?&apikey=${process.env.SAVE_API_KEY}`,  {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newProduct)
+    });
+    const filmData = postFilm.json();
+    return newProduct;
+}
 
 const fetchPutFilm = async (newProduct) => {
 
-  let postFilm = await fetch(`https://www.omdbapi.com/?&apikey=${process.env.SAVE_API_KEY}`,  {
-      method: "PUT",
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newProduct)
-  });
-  const filmData = postFilm.json();
-  return newProduct;
+    let postFilm = await fetch(`https://www.omdbapi.com/?&apikey=${process.env.SAVE_API_KEY}`,  {
+        method: "PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newProduct)
+    });
+    const filmData = postFilm.json();
+    return newProduct;
 }
 
+
 module.exports = {
-  fetchFilm,
-  fetchFilms,
-  fetchPostFilm,
-  fetchPutFilm
+    fetchFilm,
+    fetchFilms,
+    fetchPostFilm,
+    fetchPutFilm,
 }
