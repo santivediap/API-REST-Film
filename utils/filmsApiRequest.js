@@ -28,9 +28,23 @@ const fetchPostFilm = async (newProduct) => {
   return newProduct;
 };
 
+const fetchPutFilm = async (newProduct) => {
+
+  let postFilm = await fetch(`https://www.omdbapi.com/?&apikey=${process.env.SAVE_API_KEY}`,  {
+      method: "PUT",
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newProduct)
+  });
+  const filmData = postFilm.json();
+  return newProduct;
+}
 
 module.exports = {
   fetchFilm,
   fetchFilms,
-  fetchPostFilm
+  fetchPostFilm,
+  fetchPutFilm
 }

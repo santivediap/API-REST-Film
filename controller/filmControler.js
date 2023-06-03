@@ -53,7 +53,23 @@ const createFilm = async (req, res) => {
   res.status(200).json({message: `Se ha guardado: ${postFilm.titulo}` });
 }
 
+const editFilm = async (req, res) => {
+  const {Title, Writer, Plot, Poster} = req.body;
+
+  const editedFilm = {
+      titulo: Title,
+      Autor: Writer,
+      Descripcion: Plot,
+      src: Poster,
+  }
+
+  const putFilm = await filmsAPI.fetchPutFilm(editedFilm)
+  let id = Math.floor(Math.random() * (10000 - 1) + 1);
+  res.status(200).json({id, message: `Se ha actualizado: ${putFilm.titulo}` });
+}
+
 module.exports = {
   getFilm,
   createFilm,
+  editFilm,
 };
