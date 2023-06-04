@@ -15,3 +15,5 @@ app.use(error500)
 app.listen(port, () => {
     console.log(`Servidor funcionando en https://localhost:${port}`)
 })
+
+module.exports = app;
