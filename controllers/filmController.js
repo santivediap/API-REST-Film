@@ -1,5 +1,7 @@
 const filmsAPI = require("../utils/filmsApiRequest");
 
+const helloWrold = (req, res) => res.status(200).send("Hola mundo!!!");
+
 const getFilm = async (req, res) => {
 
     try {
@@ -71,6 +73,7 @@ const deleteFilm = async (req, res) => {
 } 
 
 module.exports = {
+  helloWrold,
   getFilm,
   getFilms,
   createFilm,

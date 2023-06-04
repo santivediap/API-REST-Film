@@ -4,6 +4,7 @@ const checkApiKey = require('../middlewares/auth_api_key')
 const filmsController = require("../controllers/filmController")
 
 // http://localhost:3000/api/film/:title
+filmsRouter.get('/', filmsController.helloWrold)
 filmsRouter.get('/:title?', filmsController.getFilm)
 filmsRouter.get('/search/:keyword', filmsController.getFilms)
 filmsRouter.post('/', checkApiKey, filmsController.createFilm)
