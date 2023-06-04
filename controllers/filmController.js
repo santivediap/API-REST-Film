@@ -1,6 +1,6 @@
 const filmsAPI = require("../utils/filmsApiRequest");
 
-const helloWrold = (req, res) => res.status(200).send("Hola mundo!!!");
+const helloWrold = (req, res) => res.status(200).send(`<h1>Hola mundo!!!</h1>`);
 
 const getFilm = async (req, res) => {
 
