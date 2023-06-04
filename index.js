@@ -1,6 +1,7 @@
-const express = require('express')
-const filmRoutes = require('./routes/filmRoutes')
-const {error404, error500} = require('./middlewares/errors')
+const express = require('express');
+
+const filmRoutes = require('../routes/filmRoutes')
+const {error404, error500} = require('../middlewares/errors')
 require('dotenv').config()
 const app = express()
 const port = 3000
