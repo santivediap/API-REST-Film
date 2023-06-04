@@ -5,6 +5,7 @@ const filmsController = require("../controllers/filmController")
 
 // http://localhost:3000/api/film/:title
 filmsRouter.get('/:title?', filmsController.getFilm)
+filmsRouter.get('/search/:keyword', filmsController.getFilms)
 filmsRouter.post('/', checkApiKey, filmsController.createFilm)
 filmsRouter.put('/', checkApiKey, filmsController.editFilm)
 filmsRouter.delete('/:title?', checkApiKey, filmsController.deleteFilm)
